@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHISHING WEBSITE DETECTOR</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Poppins");
 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #001f3d; /* Dark blue background */
+            position: relative; /* To position footer text */
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px; /* Increased width */
+            min-height: 300px;
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 4vw; /* Responsive font size */
+            margin-bottom: 20px;
+            color: transparent;
+            font-family: 'Source Sans Pro', sans-serif;
+            background: 50% 100% / 50% 50% no-repeat
+                        radial-gradient(ellipse at bottom, #1e90ff, #00bfff, transparent); /* Blue gradient */
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: reveal 3000ms ease-in-out forwards 200ms,
+                    glow 2500ms linear infinite 2000ms;
+        }
+
+        /* Updated glow animation for blue */
+        @keyframes glow {
+            40% {
+                text-shadow: 0 0 8px #1e90ff; /* Glowing blue */
+            }
+        }
+
+        /* CSS Animations */
+        @keyframes reveal {
+            80% {
+                letter-spacing: 8px;
+            }
+            100% {
+                background-size: 300% 300%;
+            }
+        }
+        .container input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .reset-btn {
+            background-color: #dc3545; /* Red color for reset button */
+        }
+        .reset-btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Styling for footer text with animation */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            color: gray;
+            background: linear-gradient(to right, white 0, gray 10%, white 20%);
+            background-position: 0;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 0;
+            }
+            60% {
+                background-position: 180px;
+            }
+            100% {
+                background-position: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PHISHING WEBSITE DETECTOR</h1>
+        <form method="POST">
+            <input type="text" name="url_input" placeholder="Enter URL" required>
+            <div>
+                <button type="submit">Check</button>
+                <button type="reset" class="reset-btn">Reset</button>
+            </div>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <p><strong>{{ result }}</strong></p>
+            <p>{{ confidence }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Footer with animation -->
+    <a href="#" class="footer">Made by Sneha Sharma</a>
+</body>
+</html>
