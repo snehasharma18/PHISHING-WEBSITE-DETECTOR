@@ -8,4 +8,4 @@ lightgbm==3.3.2
 catboost==1.0.5
 gunicorn
 scikit-learn==1.0.2
-cython==0.29.23
+cython==0.29.36
