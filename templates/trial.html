@@ -23,23 +23,34 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 800px; /* Increased width */
+            width: 900px; /* Increased width */
             min-height: 300px;
             text-align: center;
         }
+
         .container h1 {
-            font-size: 4vw; /* Responsive font size */
+            font-size: 3.5vw; /* Adjusted font size */
             margin-bottom: 20px;
             color: transparent;
             font-family: 'Source Sans Pro', sans-serif;
             background: 50% 100% / 50% 50% no-repeat
-                        radial-gradient(ellipse at bottom, #1e90ff, #00bfff, transparent); /* Blue gradient */
+                        radial-gradient(ellipse at bottom, #1e90ff, #00bfff, transparent);
             -webkit-background-clip: text;
             background-clip: text;
             animation: reveal 3000ms ease-in-out forwards 200ms,
                     glow 2500ms linear infinite 2000ms;
+            white-space: nowrap; /* Prevent text wrapping */
         }
 
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .container h1 {
+                font-size: 6vw; /* Adjust font size for smaller screens */
+            }
+            .container {
+                width: 95%; /* Make the container responsive */
+            }
+        }
         /* Updated glow animation for blue */
         @keyframes glow {
             40% {
